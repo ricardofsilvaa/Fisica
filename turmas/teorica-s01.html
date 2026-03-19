@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Física Teórica 02 - Turma S01 | Prof. Ricardo Silva</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        /* Mesmo CSS da página principal, com alguns acréscimos */
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background-color: #ffffff;
+            color: #000000;
+            line-height: 1.5;
+        }
+        .container { max-width: 1200px; margin: 0 auto; padding: 2rem 1.5rem; }
+        
+        /* Cabeçalho com navegação */
+        .top-nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 2rem;
+            padding-bottom: 1rem;
+            border-bottom: 2px solid #f1c40f;
+        }
+        .back-link {
+            color: #000;
+            text-decoration: none;
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        .back-link:hover { color: #f1c40f; }
+        
+        /* Cards de material */
+        .materiais-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+        .material-card {
+            background: #fff;
+            border: 1px solid #ddd;
+            border-top: 4px solid #f1c40f;
+            padding: 1.5rem;
+        }
+        .material-card h3 {
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+            margin-bottom: 1.2rem;
+            font-size: 1.3rem;
+        }
+        .material-card i { color: #f1c40f; font-size: 1.5rem; }
+        
+        .lista-arquivos {
+            list-style: none;
+        }
+        .lista-arquivos li {
+            margin: 0.8rem 0;
+            padding: 0.5rem;
+            border-bottom: 1px dashed #eee;
+        }
+        .lista-arquivos a {
+            color: #000;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+        }
+        .lista-arquivos a:hover {
+            color: #f1c40f;
+        }
+        .lista-arquivos i {
+            width: 1.2rem;
+            color: #666;
+        }
+        
+        /* Cronograma */
+        .cronograma {
+            margin: 2rem 0;
+            border: 1px solid #ddd;
+        }
+        .cronograma-header {
+            background: #000;
+            color: #f1c40f;
+            padding: 1rem;
+            font-weight: 600;
+            display: grid;
+            grid-template-columns: 100px 1fr 100px;
+        }
+        .cronograma-item {
+            padding: 1rem;
+            border-bottom: 1px solid #eee;
+            display: grid;
+            grid-template-columns: 100px 1fr 100px;
+        }
+        .cronograma-item:nth-child(even) { background: #f9f9f9; }
+        
+        .badge {
+            background: #f1c40f;
+            color: #000;
+            padding: 0.2rem 0.8rem;
+            border-radius: 0;
+            font-weight: 600;
+            font-size: 0.8rem;
+        }
+        
+        /* Footer */
+        .footer-utfpr {
+            margin-top: 3rem;
+            padding-top: 1.5rem;
+            border-top: 2px solid #f1c40f;
+            font-size: 0.85rem;
+            color: #555;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Navegação -->
+        <div class="top-nav">
+            <a href="../index.html" class="back-link"><i class="fas fa-arrow-left"></i> Página Principal</a>
+            <div class="logo-mini">UTF<span style="color:#f1c40f;">PR</span></div>
+        </div>
+
+        <!-- Cabeçalho da Turma -->
+        <div style="margin-bottom: 2rem;">
+            <h1 style="font-size: 2.2rem; display: flex; align-items: center; gap: 1rem;">
+                <i class="fas fa-flask" style="color:#f1c40f;"></i> 
+                Física Teórica 02 - Turma S01
+            </h1>
+            <p style="color: #666;">Prof. Dr. Ricardo F. da Silva | <strong>Semestre 2026/01</strong></p>
+            <div style="display: flex; gap: 0.5rem; margin-top: 1rem;">
+                <span class="badge">Segunda 8h20-10h00 <br> Quarta 10h20-12h00</span>
+                <span class="badge">Sala CE-307 <br> Sala CE-308</span>
+                
+            </div>
+        </div>
+
+        <!-- Grid de Materiais -->
+        <div class="materiais-grid">
+            <!-- Slides e Apresentações -->
+            <div class="material-card">
+                <h3><i class="fas fa-chalkboard-teacher"></i>Roteiros dos Relatórios</h3>
+                <ul class="lista-arquivos">
+                    <li><a href="https://nuvem.utfpr.edu.br/index.php/s/ycBEh9OpSN0Ih0q"><i class="fas fa-file-pdf"></i>Roteiro - 01</a></li>
+                    <li><a href="https://nuvem.utfpr.edu.br/index.php/s/NT7ARt3PaWb9tZZ"><i class="fas fa-file-pdf"></i>Roteiro - 02</a></li>
+                    <li><a href="#"><i class="fas fa-file-pdf"></i>Roteiro - 03</a></li>
+                    <li><a href="#"><i class="fas fa-file-pdf"></i>Roteiro - 04</a></li>
+                    <li><a href="#"><i class="fas fa-file-pdf"></i>Roteiro - 05</a></li>
+                    <li><a href="#"><i class="fas fa-file-pdf"></i>Roteiro - 06</a></li>
+                    <li><a href="#"><i class="fas fa-file-pdf"></i>Roteiro - 07</a></li>
+                </ul>
+            </div>
+
+            <!-- Listas de Exercícios -->
+            <div class="material-card">
+                <h3><i class="fas fa-tasks"></i>Slides Utilizados em Sala</h3>
+                <ul class="lista-arquivos">
+                    <li><a href="#"><i class="fas fa-file-powerpoint"></i> Medidas e Erros</a></li>
+                    <li><a href="#"><i class="fas fa-file-powerpoint"></i> Propagação de Erros</a></li>
+                    <li><a href="#"><i class="fas fa-file-powerpoint"></i> Construção de Gráficos</a></li>
+                    
+                </ul>
+            </div>
+
+            <!-- Provas Antigas -->
+            <div class="material-card">
+                <h3><i class="fas fa-history"></i> Provas Antigas</h3>
+                <ul class="lista-arquivos">
+                    <li><a href="#"><i class="fas fa-file-pdf"></i> Prova A </a></li>
+                    <li><a href="#"><i class="fas fa-file-pdf"></i> Prova B </a></li>
+                    <li><a href="#"><i class="fas fa-file-pdf"></i> Prova C</a></li>
+                </ul>
+            </div>
+        </div>
+
+        
+
+        <!-- Referências Bibliográficas -->
+        <div style="margin: 2rem 0; background: #f5f5f5; padding: 1.5rem; border-left: 4px solid #f1c40f;">
+            <h3><i class="fas fa-book"></i> Referências Bibliográficas</h3>
+            <ul style="margin-top: 1rem; list-style: none;">
+                <li style="margin: 0.5rem 0;">📘 HALLIDAY, D.; RESNICK, R.; WALKER, J. <strong>Fundamentos de Física</strong>. Vol. 1. e Vol. 2. 12ª ed. LTC.</li>
+                <li style="margin: 0.5rem 0;">📘 NUSSENZVEIG, H. M. <strong>Curso de Física Básica</strong>. Vol. 1. e Vol. 2. 5ª ed. Blucher, 2018.</li>
+                <li style="margin: 0.5rem 0;">📘 TIPLER, P.; MOSCA, G. <strong>Física para Cientistas e Engenheiros</strong>. Vol. 1. e Vol. 2. 6ª ed. LTC, 2011.</li>
+                <li style="margin: 0.5rem 0;">📘 VUOLO, J. H. <strong>Fundamentos da Teoria de Erros</strong>. 3ª ed. Blucher, 2020.</li>
+            </ul>
+        </div>
+<!-- Sugestões de Estudo -->
+        <div style="margin: 2rem 0;">
+            <h3><i class="fas fa-lightbulb"></i> Horários de Permanência/Atendimento ao Aluno</h3>
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px,1fr)); gap: 1rem; margin-top: 1rem;">
+                <div style="border:1px solid #ddd; padding:1rem;">
+                    <i class="fa-solid fa-solidLarge fa-user" style="color:#f1c40f;"></i><br>
+                    Segundas-Feiras: 14h40 - 15h30.<br>
+                    Quartas-Feiras 9h10 - 10h00.
+                </div>
+                
+            </div>
+        </div>
+       
+
+        <!-- Rodapé UTFPR -->
+        <div class="footer-utfpr">
+            <div>Av. Sete de Setembro, 3165, Rebouças | Curitiba/PR | 80230-901</div>
+            <div><i class="fas fa-envelope"></i> ricardo.silva@utfpr.edu.br</div>
+        </div>
+    </div>
+</body>
+</html>

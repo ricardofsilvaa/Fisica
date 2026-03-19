@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prof. Dr. Ricardo F. da Silva | UTFPR</title>
+    <!-- Fonte similar à Futura (recomendada no manual) -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Ícones Font Awesome (incluindo as redes sociais) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Montserrat', 'Futura', sans-serif;
+            background-color: #fff;
+            color: #000;
+            line-height: 1.5;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem 1.5rem;
+        }
+
+        /* ----- Cabeçalho com logo real e redes ----- */
+        .top-bar {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 1.5rem;
+            padding-bottom: 1rem;
+            border-bottom: 3px solid #f1c40f; /* dourado institucional */
+        }
+
+        .logo-utfpr {
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+        }
+
+        .logo-utfpr img {
+            height: 60px;
+            width: auto;
+            display: block;
+        }
+
+        .logo-utfpr small {
+            font-size: 0.75rem;
+            color: #555;
+            max-width: 200px;
+            line-height: 1.2;
+        }
+
+        .redes-sociais {
+            display: flex;
+            gap: 1.2rem;
+            align-items: center;
+        }
+
+        .redes-sociais a {
+            color: #000;
+            font-size: 1.8rem;
+            transition: all 0.2s;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .redes-sociais a:hover {
+            color: #f1c40f;
+            transform: translateY(-3px);
+        }
+
+        /* LinkedIn, GitHub, Instagram com cores originais no hover (opcional) */
+        .redes-sociais a[href*="linkedin"]:hover { color: #0077b5; }
+        .redes-sociais a[href*="github"]:hover { color: #333; }
+        .redes-sociais a[href*="instagram"]:hover { color: #e4405f; }
+
+        /* ----- Área do professor ----- */
+        .professor-header {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: center;
+            margin: 2rem 0 1.5rem;
+        }
+
+        .professor-titulo h1 {
+            font-size: 2.2rem;
+            font-weight: 600;
+            color: #000;
+        }
+
+        .professor-titulo p {
+            color: #555;
+            font-size: 1rem;
+        }
+
+        .lattes-btn {
+            background-color: #000;
+            color: #fff;
+            padding: 0.6rem 1.5rem;
+            text-decoration: none;
+            font-weight: 500;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            border-left: 4px solid #f1c40f;
+            transition: 0.2s;
+        }
+
+        .lattes-btn:hover {
+            background-color: #f1c40f;
+            color: #000;
+        }
+
+        /* Cards de turmas (como antes, mas com ajustes finos) */
+        .grade-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin: 2.5rem 0;
+        }
+
+        .card {
+            background: #fff;
+            border: 1px solid #ddd;
+            border-top: 4px solid #f1c40f;
+            padding: 1.5rem;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.03);
+            transition: 0.2s;
+        }
+
+        .card:hover {
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+        }
+
+        .card-header {
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+            margin-bottom: 1.2rem;
+            border-bottom: 1px solid #eee;
+            padding-bottom: 0.5rem;
+        }
+
+        .card-header i {
+            font-size: 1.8rem;
+            color: #f1c40f;
+        }
+
+        .card h2 {
+            font-size: 1.4rem;
+            font-weight: 600;
+        }
+
+        .turma-lista {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.8rem;
+            margin: 1rem 0;
+        }
+
+        .turma-item {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.3rem;
+            background-color: #f5f5f5;
+            border: 1px solid #ccc;
+            padding: 0.3rem 1rem;
+            font-weight: 600;
+            font-size: 1rem;
+            color: #000;
+            text-decoration: none;
+            transition: 0.2s;
+        }
+
+        .turma-item:hover {
+            background-color: #f1c40f;
+            border-color: #000;
+        }
+
+        .turma-item i {
+            font-size: 0.8rem;
+        }
+
+        /* Seção de pesquisas em destaque */
+        .pesquisa-destaque {
+            background-color: #000;
+            color: #fff;
+            padding: 2rem;
+            margin: 2.5rem 0;
+            border-left: 8px solid #f1c40f;
+        }
+
+        .pesquisa-destaque h2 {
+            color: #f1c40f;
+            margin-bottom: 1.5rem;
+        }
+
+        .pesquisa-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .pesquisa-item {
+            border-left: 3px solid #f1c40f;
+            padding-left: 1rem;
+        }
+
+        .pesquisa-item h3 {
+            color: #fff;
+        }
+
+        .pesquisa-item p {
+            color: #ccc;
+        }
+
+        /* Contato rápido */
+        .contato-lattes {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: space-between;
+            background: #f5f5f5;
+            border: 1px solid #ccc;
+            padding: 1.5rem 2rem;
+            margin-top: 2rem;
+        }
+
+        .contato-texto {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            font-size: 1.2rem;
+            font-weight: 500;
+        }
+
+        .contato-texto i {
+            font-size: 2rem;
+            color: #f1c40f;
+        }
+
+        .btn-lattes {
+            background-color: #000;
+            color: #fff;
+            padding: 0.8rem 2rem;
+            text-decoration: none;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+            border-left: 4px solid #f1c40f;
+        }
+
+        .btn-lattes:hover {
+            background-color: #333;
+        }
+
+        /* Rodapé institucional */
+        .footer-utfpr {
+            margin-top: 3rem;
+            padding-top: 1.5rem;
+            border-top: 2px solid #f1c40f;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: center;
+            color: #555;
+            font-size: 0.9rem;
+        }
+
+        .footer-utfpr a {
+            color: #000;
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        /* Atribuição da licença CC (exigida pela Wikipedia) */
+        .licenca-atribuicao {
+            font-size: 0.7rem;
+            color: #777;
+            margin-top: 0.5rem;
+        }
+        .licenca-atribuicao a {
+            color: #777;
+            text-decoration: underline;
+        }
+
+        @media (max-width: 700px) {
+            .top-bar {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 1rem;
+            }
+            .professor-header {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Barra superior com logo real e redes sociais -->
+        <div class="top-bar">
+            <div class="logo-utfpr">
+                <!-- Logo oficial da UTFPR (SVG da Wikipedia) -->
+                <img src="https://www.utfpr.edu.br/comunicacao/design/marca-da-utfpr/utfpr-identidade-visual_versaousual.png/@@images/image-842-d6909d1998c8b9bfdae53e6f182fde06.png" 
+                     alt="Logo UTFPR" 
+                     onerror="this.onerror=null; this.src='https://via.placeholder.com/200x60?text=UTFPR';">
+                <small>Universidade Tecnológica Federal do Paraná</small>
+            </div>
+            <div class="redes-sociais">
+                <a href="https://www.linkedin.com/in/ricardo-f-silva" target="_blank" title="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                <a href="https://github.com/ricardofsilvaa" target="_blank" title="GitHub"><i class="fab fa-github"></i></a>
+                <a href="https://www.instagram.com/prof.ricardosilva" target="_blank" title="Instagram"><i class="fab fa-instagram"></i></a>
+            </div>
+        </div>
+
+        <!-- Cabeçalho do professor -->
+        <div class="professor-header">
+            <div class="professor-titulo">
+                <h1>Prof. Dr. Ricardo F. da Silva</h1>
+                <p>Departamento Acadêmico de Física | <strong>Campus Curitiba</strong></p>
+                <p style="font-size:0.9rem; color:#666;">Semestre 2026/01 </p>
+            </div>
+            <a href="http://lattes.cnpq.br/0595767132346835" target="_blank" class="lattes-btn">
+                <i class="fas fa-book-open"></i> Curriculo Lattes
+            </a>
+        </div>
+
+        <!-- Cards de Turmas (agora com links para subpáginas) -->
+        <div class="grade-cards">
+            <!-- Física Experimental 01 -->
+            <div class="card">
+                <div class="card-header">
+                    <i class="fas fa-flask"></i>
+                    <h2>Física Experimental 01</h2>
+                </div>
+                <div class="turma-lista">
+                    <a href="turmas/experimental-s15.html" class="turma-item">S15 <i class="fas fa-arrow-right"></i></a>
+                    <a href="turmas/experimental-s21.html" class="turma-item">S21 <i class="fas fa-arrow-right"></i></a>
+                    <a href="turmas/experimental-s72.html" class="turma-item">S72 <i class="fas fa-arrow-right"></i></a>
+                    <a href="turmas/experimental-s26.html" class="turma-item">S26 <i class="fas fa-arrow-right"></i></a>
+                </div>
+                <p style="margin-top:0.5rem;">Aulas experimentais de Mecânica, Termodinâmica e Ondulatória.</p>
+            </div>
+            <!-- Física Teórica 02 -->
+            <div class="card">
+                <div class="card-header">
+                    <i class="fas fa-bolt"></i>
+                    <h2>Física Teórica 02</h2>
+                </div>
+                <div class="turma-lista">
+                    <a href="turmas/teorica-s01.html" class="turma-item">S01 <i class="fas fa-arrow-right"></i></a>
+                </div>
+                <p>Aulas expositivas/dialogadas de Gravitação, Ondas e Termodinâmica</p>
+            </div>
+            <!-- Horários do Professor -->
+            <div class="card">
+                <div class="card-header">
+                    <i class="fas fa-clock"></i>
+                    <h2>Horários</h2>
+                </div>
+                <p><i class="fas fa-chalkboard-teacher"></i> <strong>Ensino:</strong> Seg/Qua 7h30-18h20</p>
+                <p><i class="fas fa-search"></i> <strong>Pesquisa:</strong> Ter/Qui/Sex 8h-17h</p>
+                <p><i class="fas fa-users"></i> <strong>Extensão:</strong> Ter/Dom 10h-11h30 e 20h00-21h30</p>
+                <p><i class="fas fa-user-graduate"></i> <strong>Atendimento:</strong> Seg 14h40-15h30 e Qua 9h10-10h00 (sala CN-121)</p>
+            </div>
+        </div>
+
+        <!-- Pesquisas com novo enfoque -->
+        <div class="pesquisa-destaque">
+            <h2>Pesquisas e Projetos</h2>
+            <div class="pesquisa-grid">
+                <div class="pesquisa-item">
+                    <h3>Comunicação Quântica</h3>
+                    <p>Criptografia pós-quântica, teleporte e redes e comunicação quântica.</p>
+                </div>
+                <div class="pesquisa-item">
+                    <h3>Blockchain</h3>
+                    <p>Consenso distribuído, contratos inteligentes e aplicações descentralizadas.</p>
+                </div>
+                <div class="pesquisa-item">
+                    <h3>Inovação Tecnológica</h3>
+                    <p>Ponte Empresa Universidade, Fomento para Desenvolvimento.</p>
+                </div>
+                <div class="pesquisa-item">
+                    <h3>Startups & Negócios</h3>
+                    <p>Incubação, Residência, modelos de negócio e venture building.</p>
+                </div>
+            </div>
+        </div>
+
+        
+        <!-- Rodapé com endereço, email e atribuição da licença da logo -->
+        <div class="footer-utfpr">
+            <div>
+                <i class="fas fa-map-marker-alt"></i> Av. Sete de Setembro, 3165, Rebouças | Curitiba/PR
+            </div>
+            <div>
+                <i class="fas fa-envelope"></i> ricardo.silva@utfpr.edu.br
+            </div>
+            <div class="licenca-atribuicao">
+                <a href="https://www.utfpr.edu.br/comunicacao/design/marca-da-utfpr/utfpr-identidade-visual_versaousual.png/@@images/image-842-d6909d1998c8b9bfdae53e6f182fde06.png" target="_blank">Logo UTFPR</a> © <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank">CC BY 4.0</a> · Adaptado para fins institucionais
+            </div>
+        </div>
+    </div>
+
+    <!-- JavaScript para interatividade leve (ex: alerta no contato) -->
+    <script>
+        (function() {
+            const msgBox = document.querySelector('.contato-texto');
+            if(msgBox) {
+                msgBox.addEventListener('click', () => {
+                    alert('Para enviar mensagem, use: ricardo.silva@utfpr.edu.br\nEm breve um formulário direto estará disponível.');
+                });
+            }
+        })();
+    </script>
+</body>
+</html>
